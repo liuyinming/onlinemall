@@ -10,7 +10,34 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      "/goods": {
+          //target: "http://192.168.2.104:8090"
+          target: "http://localhost:5000"
+        // pathRewrite: {
+        //   "^/api": "/static/mall"
+        // }
+      },
+      "/goods/*": {
+        //target: "http://192.168.2.104:8090"
+        target: "http://localhost:5000"
+      // pathRewrite: {
+      //   "^/api": "/static/mall"
+      // }
+    },
+    "/users": {
+      target: "http://localhost:5000"
+    },
+    "/users/*": {
+      target: "http://localhost:5000"
+    },
+    "/managers": {
+      target: "http://localhost:5000"
+    },
+    "/managers/*": {
+      target: "http://localhost:5000"
+    },
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -23,7 +50,7 @@ module.exports = {
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
